@@ -284,7 +284,6 @@ export class DatabaseService {
 
 
   public async createTreatment(treatment:Traitement):Promise<pg.QueryResult> {
-    console.log("anal zouaq");
     const client=await this.pool.connect();
 
     let queryText=`INSERT INTO VetoSansFrontieresDB.Traitement VALUES('${treatment.noexamen}','${treatment.dateexamen}',
