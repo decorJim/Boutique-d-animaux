@@ -1,0 +1,82 @@
+<div id="hotel">
+  <h1>Treatments</h1>
+
+  <div class="divider"></div>
+
+  <label for="cars">Choose an Animal:</label>
+  &nbsp;
+  <select (change)="selectByAnimal($event.target.value)">
+    <option > all </option> 
+    <option *ngFor="let animal of ArrayAnimal; let j = index" > {{animal.noanimal}} </option>
+  </select>
+
+  <table id="ht" align="center" border="1" width="2000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">EXAM NUMBER</th>
+      <th class="contentCell">EXAM DATE</th>
+      <th class="contentCell">QUANTITY</th>
+      <th class="actionCell">STARTING DATE</th>
+      <th class="actionCell">ENDING DATE</th>
+      <th class="actionCell">OWNER NUMBER</th>
+      <th class="actionCell">ANIMAL NUMBER</th>
+      <th class="actionCell">EMPLOYEE NUMBER</th>
+      <th class="actionCell">TREATMENT TYPE NUMBER</th>
+      <th class="actionCell">Action</th>
+    </thead>
+    <tr *ngFor="let treatment of treatments; let i = index">
+      <td class="contentCell">{{ treatment.noexamen }}</td>
+      <td class="contentCell" contenteditable="true" (blur)="changeTreatmentdate($event,i)">{{ treatment.dateexamen.substring(0,10) }}</td>
+      <td class="contentCell" contenteditable="true" (blur)="changeTreatmentquantity($event,i)">{{ treatment.quantite }}</td>
+      <td class="contentCell" contenteditable="true" (blur)="changeStartingdate($event,i)">{{ treatment.datedebut.substring(0,10) }}</td>
+      <td class="contentCell" contenteditable="true" (blur)="changeDatefin($event,i)">{{ treatment.datefin.substring(0,10) }}</td>
+      <td class="contentCell">{{ treatment.noproprietaire }}</td>
+      <td class="contentCell">{{ treatment.noanimal }}</td>
+      <td class="contentCell">{{ treatment.noemploye }}</td>
+      <td class="contentCell">{{ treatment.notypetraitement }}</td>
+    
+        <td class="actionCell">
+          <button type="button" class="submitbtn" (click)="updateTreatment(i)"><i class="fa fa-edit"></i></button>
+          <button type="button" class="deletebtn" (click)="deleteTreatment(i)"><i class="fa fa-trash-o"></i></button>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <br>
+
+  <table align="center" border="1" width="2000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">EXAM NUMBER</th>
+      <th class="contentCell">EXAM DATE</th>
+      <th class="contentCell">QUANTITY</th>
+      <th class="actionCell">STARTING DATE</th>
+      <th class="actionCell">ENDING DATE</th>
+      <th class="actionCell">OWNER NUMBER</th>
+      <th class="actionCell">ANIMAL NUMBER</th>
+      <th class="actionCell">EMPLOYEE NUMBER</th>
+      <th class="actionCell">TREATMENT TYPE NUMBER</th>
+    </thead>
+  <tr class="blank_row">
+     <td class="contentCell" contenteditable="true" placeholder="New ExamNo" #newNoExam></td>
+     <td class="contentCell" contenteditable="true" placeholder="new animalNo" #newExamDate></td>
+     <td class="contentCell" contenteditable="true" placeholder="new employeNo" #newQuantity></td>
+     <td class="contentCell" contenteditable="true" placeholder="new date" #newStartingDate></td>
+     <td class="contentCell" contenteditable="true" placeholder="new total" #newEndingDate></td>
+     <td class="contentCell" contenteditable="true" placeholder="new paye" #newOwnerNo>
+      <select (change)="setOwnerNo($event.target.value)" #newOwner>
+        <option *ngFor="let owner of owners; let i = index">{{owner.noproprietaire}} </option>
+      </select>
+     </td>
+     <td class="contentCell" contenteditable="true" placeholder="new payment type" #newAnimalNo>
+      <select (change)="setAnimalNo($event.target.value)" #newOwner>
+        <option *ngFor="let animal of ArrayAnimal; let i = index">{{animal.noanimal}} </option>
+      </select>
+     </td>
+     <td class="contentCell" contenteditable="true" placeholder="new payment type" #newEmployeeNo></td>
+     <td class="contentCell" contenteditable="true" placeholder="new payment type" #newTreatmentTypeNo></td>
+   </tr>
+  </table>
+
+  <button type="button" class="btn" (click)="addTreatment()">+</button>
+
+</div>

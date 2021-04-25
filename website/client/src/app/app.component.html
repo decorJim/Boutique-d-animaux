@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand title" href="/">INF3710 - TP3</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink="/animals">Animals</a>
+      <a class="nav-item nav-link active" routerLink="/factures">Factures</a>
+      <a class="nav-item nav-link active" routerLink="/traitements">Traitements</a>
+    </div>
+  </div>
+</nav>
+
+<div class="home" *ngIf="route == ''">
+  <p>
+    Welcome<br />to<br /><span class="hotel1">VetoSansFrontieres</span>
+  </p>
+  <button type="button" class="btn" routerLink="/animals">Check out our animals &#10140;</button>
+</div>
+
+<router-outlet></router-outlet>

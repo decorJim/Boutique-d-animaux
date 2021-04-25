@@ -1,0 +1,40 @@
+<div id="hotel">
+  <h1>Factures</h1>
+
+  <div class="divider"></div>
+
+  <label for="cars">Choose a Owner:</label>
+  &nbsp;
+  <select  (change)="selectByOwner($event.target.value)">
+    <option > all </option>
+    <option *ngFor="let owner of owners; let i = index" > {{owner.nom}} </option>
+  </select>
+
+  <table id="ht" align="center" border="1" width="2000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">OWNER NUMBER</th>
+      <th class="contentCell">ANIMAL NUMBER</th>
+      <th class="contentCell">EMPLOYEE NUMBER</th>
+      <th class="actionCell">DATE</th>
+      <th class="actionCell">TOTAL</th>
+      <th class="actionCell">PAYE</th>
+      <th class="actionCell">TYPE PAYMENT</th>
+     
+    </thead>
+    <tr *ngFor="let bill of bills; let i = index">
+      <td class="contentCell">{{ bill.noproprietaire }}</td>
+      <td class="contentCell">{{ bill.noanimal }}</td>
+      <td class="contentCell">{{ bill.noemploye }}</td>
+      <td class="contentCell"  (blur)="changeBilldate($event,i)">{{ bill.datefacture.substring(0,10) }}</td>
+      <td class="contentCell"  (blur)="changeBilltotal($event,i)">{{ bill.total }}</td>
+
+      <td class="contentCell"  (blur)="changeBillpaye($event,i)">{{ bill.paye }}</td>
+      <td class="contentCell"  (blur)="changeBilltypepayment($event,i)">{{ bill.typedepaiement }}</td>
+    
+       
+    </tr>
+    </tbody>
+  </table>
+  <br>
+</div>
+
