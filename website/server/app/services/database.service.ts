@@ -24,14 +24,6 @@ export class DatabaseService {
   public pool: pg.Pool = new pg.Pool(this.connectionConfig);
 
   // ======= DEBUG =======
-  /*public async getAllFromTable(tableName: string): Promise<pg.QueryResult> {
-    
-    const client = await this.pool.connect();
-    const res = await client.query(`SELECT * FROM HOTELDB.${tableName};`);
-    client.release()
-    return res;
-  }
-*/
   
   public async getAllFromTable(tableName: string): Promise<pg.QueryResult> {
     
@@ -41,28 +33,6 @@ export class DatabaseService {
     return res;
   }
 
-
-
-  // ======= HOTEL =======
- 
-
-  // get hotels that correspond to certain caracteristics
-  public async filterHotels(hotelNb: string, hotelName: string, city: string): Promise<pg.QueryResult> {
-    const client = await this.pool.connect();
-
-    const searchTerms: string[] = [];
-    if (hotelNb.length > 0) searchTerms.push(`hotelNb = '${hotelNb}'`);
-    if (hotelName.length > 0) searchTerms.push(`name = '${hotelName}'`);
-    if (city.length > 0) searchTerms.push(`city = '${city}'`);
-
-    let queryText = "SELECT * FROM HOTELDB.Hotel";
-    if (searchTerms.length > 0) queryText += " WHERE " + searchTerms.join(" AND ");
-    queryText += ";";
-
-    const res = await client.query(queryText);
-    client.release()
-    return res;
-  }
 /***************************************************************************************************************** */
   // filtre animal
   public async filterAnimal(owner:number): Promise<pg.QueryResult> {
@@ -341,14 +311,6 @@ export class DatabaseService {
   
 /**************************************************************************************************************** */
 
-  // get the hotel names and numbers so so that the user can only select an existing hotel
-  public async getHotelNamesByNos(): Promise<pg.QueryResult> {
-    const client = await this.pool.connect();
-    const res = await client.query("SELECT hotelNb, name FROM HOTELDB.Hotel;");
-    client.release()
-    return res;
-  }
-
   /*
   public async getAnimalNamesByNos(): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
@@ -358,48 +320,5 @@ export class DatabaseService {
   }
   */
 
-
-  // ======= ROOMS =======
-
-
-  public async filterRooms(
-    hotelNb: string,
-    roomNb: string = "",
-    roomType: string = "",
-    price: number = -1
-    ): Promise<pg.QueryResult> {
-    const client = await this.pool.connect();
-
-    if (!hotelNb || hotelNb.length === 0) throw new Error("Invalid filterRooms request");
-    
-    let searchTerms = [];
-    searchTerms.push(`hotelNb = '${hotelNb}'`);
-
-    if (roomNb.length > 0) searchTerms.push(`hotelNb = '${hotelNb}'`);
-    if (roomType.length > 0) searchTerms.push(`type = '${roomType}'`);
-    if (price >= 0) searchTerms.push(`price = ${price}`);
-
-    let queryText = `SELECT * FROM HOTELDB.Room WHERE ${searchTerms.join(" AND ")};`;
-    const res = await client.query(queryText);
-    client.release()
-    return res;
-  }
-
-
-  // ======= GUEST =======
-  
-  public async getGuests(hotelNb: string, roomNb: string): Promise<pg.QueryResult> {
-    if (!hotelNb || hotelNb.length === 0) throw new Error("Invalid guest hotel no");
-    
-    const client = await this.pool.connect();
-    const queryExtension = roomNb ? ` AND b.roomNb = '${roomNb}'` : "";
-    const query: string = `SELECT * FROM HOTELDB.Guest g JOIN HOTELDB.Booking b ON b.guestNb = g.guestNb WHERE b.hotelNb = '${hotelNb}'${queryExtension};`;
-
-    const res = await client.query(query);
-    client.release()
-    return res;
-  }
-
-  // ======= BOOKING =======
  
 }

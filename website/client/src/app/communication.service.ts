@@ -3,9 +3,6 @@ import { Injectable } from "@angular/core";
 // tslint:disable-next-line:ordered-imports
 import { of, Observable, Subject } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { Hotel } from "../../../common/tables/Hotel";
-import { Room } from "../../../common/tables/Room";
-import { Guest } from "../../../common/tables/Guest";
 import {Animal} from "../../../common/tables/Animal";
 import { Proprietaire } from "../../../common/tables/Proprietaire";
 import { Facture } from "../../../common/tables/Facture";
@@ -25,12 +22,6 @@ export class CommunicationService {
 
   public filter(filterBy: string): void {
     this._listners.next(filterBy);
-  }
-
-  public getHotels(): Observable<Hotel[]> {
-    return this.http
-      .get<Hotel[]>(this.BASE_URL + "/hotels")
-      .pipe(catchError(this.handleError<Hotel[]>("getHotels")));
   }
 
 
@@ -158,19 +149,6 @@ export class CommunicationService {
   }
 
   /***************************** */
-
-  public getRooms(hotelNb: string): Observable<Room[]> {
-    return this.http
-      .get<Room[]>(this.BASE_URL + `/rooms?hotelNb=${hotelNb}`)
-      .pipe(catchError(this.handleError<Room[]>("getRooms")));
-  }
-
-
-  public getGuests(hotelNb: string, roomNb: string): Observable<Guest[]> {
-    return this.http
-      .get<Guest[]>(this.BASE_URL + `/guests/${hotelNb}/${roomNb}`)
-      .pipe(catchError(this.handleError<Guest[]>("getGuests")));
-  }
 
   private handleError<T>(
     request: string,
