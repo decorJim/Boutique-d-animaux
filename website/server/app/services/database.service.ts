@@ -15,7 +15,7 @@ export class DatabaseService {
   public connectionConfig: pg.ConnectionConfig = {
     user: "postgres",
     database: "VetoSansFrontieresDB",
-    password: "vic98989", // mettre password de database pour faire fonctionner
+    password: "-------", // mettre password de database pour faire fonctionner
     port: 5432,
     host: "127.0.0.1",
     keepAlive: true
