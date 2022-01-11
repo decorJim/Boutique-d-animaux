@@ -1,4 +1,4 @@
-SET search_path=VetoSansFrontieresDB;
+SET search_path=boutiqueDB;
 
 /* Lister les le numéro et nom des cliniques, leur adresse et leur gestionnaire, ordonnés par le 
 numéro de clinique */

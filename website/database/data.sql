@@ -1,5 +1,5 @@
-SET search_path=VetoSansFrontieresDB;
-/*
+SET search_path=boutiqueDB;
+
 INSERT INTO CliniqueVeterinaire VALUES(1,'Clinique1','street1','villeA','provincea','HS19J9',5128394998,512839499);
 INSERT INTO CliniqueVeterinaire VALUES(2,'Clinique2','street2','villeB','provinceb','HUH8D6',5160928309,5160928310);
 INSERT INTO CliniqueVeterinaire VALUES(3,'Clinique3','street3','villeC','provincec','H8S9OS',5129804092,5129804093);
@@ -69,7 +69,7 @@ INSERT INTO Facture VALUES(2,3,2,'2020-09-15',30,'0',null);
 INSERT INTO Facture VALUES(4,5,3,'2022-04-03',50,'1','Comptant');
 
 SELECT * FROM Facture;
-*/
+
 --DELETE FROM Animal WHERE noAnimal=5;
 --SELECT * FROM His;
 

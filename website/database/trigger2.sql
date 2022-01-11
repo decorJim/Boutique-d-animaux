@@ -1,4 +1,4 @@
-set search_path = VetoSansFrontieresDB;
+set search_path = boutiqueDB;
 CREATE TABLE IF NOT EXISTS His(				noExamen NUMERIC NOT NULL, 
 											dateExamen DATE NOT NULL, 
 											heure TIME NOT NULL, 

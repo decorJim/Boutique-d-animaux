@@ -1,6 +1,6 @@
-SET search_path=VetoSansFrontieresDB;
+SET search_path=boutiqueDB;
 
-CREATE SCHEMA IF NOT EXISTS VetoSansFrontieresDB;
+CREATE SCHEMA IF NOT EXISTS boutiqueDB;
 
 CREATE TABLE IF NOT EXISTS CliniqueVeterinaire(
   noClinique NUMERIC NOT NULL, 
