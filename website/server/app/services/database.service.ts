@@ -15,7 +15,7 @@ export class DatabaseService {
   public connectionConfig: pg.ConnectionConfig = {
     user: "postgres",
     database: "boutiqueDB",
-    password: "jim98989", // mettre password de database pour faire fonctionner
+    password: "-------", // METTRE MOT DE PASSE POUR CONNECTER AVEC PGADMIN **********++++++++++++
     port: 5432,
     host: "127.0.0.1",
     keepAlive: true

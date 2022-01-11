@@ -7,13 +7,13 @@
     margin-top: 20px;
 }
 .title {
-    color: var(--theme-purple);
+    color: var(--theme-lightblue);
     font-family: 'Roboto', sans-serif;
 }
 
 .home {
     width: 100%;
-    background-color: var(--theme-background);
+    background-color: var(--theme-blue);
     font-family: 'Roboto', sans-serif;
     position: absolute;
     top: 50%;
@@ -38,7 +38,7 @@
 }
 
 .btn {
-    background-color: var(--theme-purple);
+    background-color: var(--theme-lightblue);
     font-size: 20px;
     color: white;
     box-shadow: 2px 2px 5px grey ;

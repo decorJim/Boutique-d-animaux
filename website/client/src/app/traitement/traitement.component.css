@@ -11,7 +11,7 @@
 }
 
 .divider {
-    border-bottom: 1px solid #9A75F0;
+    border-bottom: 1px solid #afa4c7;
     margin: auto;
     width: 50%;
     margin-bottom: 25px;
@@ -27,13 +27,13 @@
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #9A75F033;
+    background-color: #cd75f033;
 }
 
 .btn {
     padding-left: 20px;
     padding-right: 20px;
-    background-color: #9A75F0;
+    background-color: #7baf40;
     margin: 20px;
     color: white;
     font-size: 25px;
@@ -66,7 +66,7 @@
 .deletebtn {
     border-radius: 4px;
     color: white; 
-    background-color: #9A75F0; 
+    background-color: #2e8692; 
     border-style: none;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .ownerButton {
-    background-color:#9A75F0;
+    background-color:#75f0c1;
 }
 
 .ownerButton:hover{
